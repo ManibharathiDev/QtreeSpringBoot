@@ -1,5 +1,8 @@
 package com.demo.demo.controller;
 
+import com.demo.demo.CricketCoach;
+import com.demo.demo.FootballCoach;
+import com.demo.demo.interfaces.Coach;
 import com.demo.demo.model.Staff;
 import com.demo.demo.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,45 +12,41 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StudentController {
 
-    //Field Injection - Dependecy Injection
-//    @Autowired
-//    private Student student;
-
-    private Student student;
-    private Staff staff;
-
-    //Constructor Injection
-    @Autowired
-    StudentController(Student student, Staff staff)
+    private Coach coach;
+    StudentController(FootballCoach coach)
     {
-        this.student = student;
-        this.staff = staff;
+        this.coach = coach;
     }
 
-    @GetMapping("/name")
-    public String getName()
+    @GetMapping("/play")
+    public String getCoach()
     {
-        return "Welcome";
+        return this.coach.play();
     }
 
-    @GetMapping("/student")
-    public Student getStudent()
+    /*private CricketCoach cricketCoach;
+    private FootballCoach footballCoach;
+    */
+
+
+    /*@Autowired
+    StudentController(CricketCoach cricketCoach, FootballCoach footballCoach)
     {
-        //Student student = new Student();
-        student.id   = 1;
-        student.name = "Gohul";
-        student.age = 25;
-        student.address = "Coimbatore";
-        return student;
+        this.cricketCoach = cricketCoach;
+        this.footballCoach = footballCoach;
     }
 
-    @GetMapping("/staff_details")
-    public Staff getStaff()
-    {
-        //Staff staff = new Staff();
-        staff.id = 2;
-        staff.staffName = "Hariharan";
-        return staff;
+    @GetMapping("/play_cricket")
+    public String getCoach(){
+        return this.cricketCoach.play();
     }
+
+    @GetMapping("/play_football")
+    public String getFootball()
+    {
+        return this.footballCoach.play();
+    }
+
+     */
 
 }
