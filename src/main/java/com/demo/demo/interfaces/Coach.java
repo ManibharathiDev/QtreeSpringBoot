@@ -4,4 +4,6 @@ public interface Coach {
 
     //It contains only pure abstract methods, Not implementations
     String play();
+
+    String coachName();
 }

@@ -18,7 +18,7 @@ public class StudentController {
     @GetMapping("/play")
     public String getCoach()
     {
-        return this.coach.play();
+        return this.coach.play()+" - "+this.coach.coachName();
     }
 
     /*private CricketCoach cricketCoach;

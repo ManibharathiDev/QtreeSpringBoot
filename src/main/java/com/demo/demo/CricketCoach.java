@@ -10,4 +10,9 @@ public class CricketCoach implements Coach {
     public String play() {
         return "I am cricket coach";
     }
+
+    @Override
+    public String coachName() {
+       return "Kannan";
+    }
 }
