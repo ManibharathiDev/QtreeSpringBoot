@@ -1,11 +1,8 @@
 package com.demo.demo.controller;
 
-import com.demo.demo.CricketCoach;
 import com.demo.demo.FootballCoach;
 import com.demo.demo.interfaces.Coach;
-import com.demo.demo.model.Staff;
-import com.demo.demo.model.Student;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentController {
 
     private Coach coach;
-    StudentController(FootballCoach coach)
+    StudentController(@Qualifier(value = "footballCoach") Coach coach)
     {
         this.coach = coach;
     }
