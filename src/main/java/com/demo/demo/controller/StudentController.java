@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentController {
 
     private Coach coach;
-    StudentController(@Qualifier(value = "footballCoach") Coach coach)
+    StudentController(Coach coach)
     {
         this.coach = coach;
     }
